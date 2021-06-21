@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA04F232267DED2200E61DC3 /* SplitDateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04F231267DED2200E61DC3 /* SplitDateHelper.swift */; };
+		FA04F234267E25C400E61DC3 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04F233267E25C400E61DC3 /* UserSettings.swift */; };
+		FA04F23B267F5FA000E61DC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA04F239267F5FA000E61DC3 /* LaunchScreen.storyboard */; };
+		FA04F23E267F60D700E61DC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA04F23D267F60D700E61DC3 /* Main.storyboard */; };
+		FA796FB2267F721C005E3364 /* LabelWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA796FB1267F721C005E3364 /* LabelWithInsets.swift */; };
+		FA796FB42680A08D005E3364 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA796FB32680A08D005E3364 /* MapViewModel.swift */; };
 		FA8712C62679DF0B00CB7552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8712C52679DF0B00CB7552 /* AppDelegate.swift */; };
 		FA8712C82679DF0B00CB7552 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8712C72679DF0B00CB7552 /* SceneDelegate.swift */; };
-		FA8712CA2679DF0B00CB7552 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8712C92679DF0B00CB7552 /* ViewController.swift */; };
-		FA8712CD2679DF0B00CB7552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8712CB2679DF0B00CB7552 /* Main.storyboard */; };
+		FA8712CA2679DF0B00CB7552 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8712C92679DF0B00CB7552 /* MapViewController.swift */; };
 		FA8712CF2679DF1100CB7552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8712CE2679DF1100CB7552 /* Assets.xcassets */; };
-		FA8712D22679DF1100CB7552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8712D02679DF1100CB7552 /* LaunchScreen.storyboard */; };
+		FA8712DA2679FD1100CB7552 /* StateOfWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8712D92679FD1000CB7552 /* StateOfWater.swift */; };
+		FA8712DD267A004F00CB7552 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8712DC267A004F00CB7552 /* NetworkManager.swift */; };
+		FA8712E0267A059400CB7552 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8712DF267A059400CB7552 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA04F231267DED2200E61DC3 /* SplitDateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitDateHelper.swift; sourceTree = "<group>"; };
+		FA04F233267E25C400E61DC3 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		FA04F239267F5FA000E61DC3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA04F23D267F60D700E61DC3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FA796FB1267F721C005E3364 /* LabelWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithInsets.swift; sourceTree = "<group>"; };
+		FA796FB32680A08D005E3364 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		FA8712C22679DF0B00CB7552 /* HotWaterWillBack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotWaterWillBack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8712C52679DF0B00CB7552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA8712C72679DF0B00CB7552 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA8712C92679DF0B00CB7552 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA8712CC2679DF0B00CB7552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA8712C92679DF0B00CB7552 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FA8712CE2679DF1100CB7552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FA8712D12679DF1100CB7552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA8712D32679DF1100CB7552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA8712D92679FD1000CB7552 /* StateOfWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOfWater.swift; sourceTree = "<group>"; };
+		FA8712DC267A004F00CB7552 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FA8712DF267A059400CB7552 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +51,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA04F235267F5CAC00E61DC3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA8712C52679DF0B00CB7552 /* AppDelegate.swift */,
+				FA8712C72679DF0B00CB7552 /* SceneDelegate.swift */,
+				FA8712D32679DF1100CB7552 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA04F236267F5CCD00E61DC3 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FA04F239267F5FA000E61DC3 /* LaunchScreen.storyboard */,
+				FA04F23D267F60D700E61DC3 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		FA04F237267F5D0C00E61DC3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA8712CE2679DF1100CB7552 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA04F238267F5D4300E61DC3 /*  Main */ = {
+			isa = PBXGroup;
+			children = (
+				FA8712C92679DF0B00CB7552 /* MapViewController.swift */,
+				FA796FB32680A08D005E3364 /* MapViewModel.swift */,
+				FA796FB1267F721C005E3364 /* LabelWithInsets.swift */,
+			);
+			path = " Main";
+			sourceTree = "<group>";
+		};
 		FA8712B92679DF0B00CB7552 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +107,33 @@
 		FA8712C42679DF0B00CB7552 /* HotWaterWillBack */ = {
 			isa = PBXGroup;
 			children = (
-				FA8712C52679DF0B00CB7552 /* AppDelegate.swift */,
-				FA8712C72679DF0B00CB7552 /* SceneDelegate.swift */,
-				FA8712C92679DF0B00CB7552 /* ViewController.swift */,
-				FA8712CB2679DF0B00CB7552 /* Main.storyboard */,
-				FA8712CE2679DF1100CB7552 /* Assets.xcassets */,
-				FA8712D02679DF1100CB7552 /* LaunchScreen.storyboard */,
-				FA8712D32679DF1100CB7552 /* Info.plist */,
+				FA8712DE267A006300CB7552 /* Models */,
+				FA8712DB267A003300CB7552 /* Helpers */,
+				FA04F235267F5CAC00E61DC3 /* Supporting Files */,
+				FA04F238267F5D4300E61DC3 /*  Main */,
+				FA04F237267F5D0C00E61DC3 /* Resources */,
+				FA04F236267F5CCD00E61DC3 /* Storyboard */,
 			);
 			path = HotWaterWillBack;
+			sourceTree = "<group>";
+		};
+		FA8712DB267A003300CB7552 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA8712DC267A004F00CB7552 /* NetworkManager.swift */,
+				FA8712DF267A059400CB7552 /* LocationManager.swift */,
+				FA04F231267DED2200E61DC3 /* SplitDateHelper.swift */,
+				FA04F233267E25C400E61DC3 /* UserSettings.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FA8712DE267A006300CB7552 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA8712D92679FD1000CB7552 /* StateOfWater.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +193,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA8712D22679DF1100CB7552 /* LaunchScreen.storyboard in Resources */,
+				FA04F23E267F60D700E61DC3 /* Main.storyboard in Resources */,
 				FA8712CF2679DF1100CB7552 /* Assets.xcassets in Resources */,
-				FA8712CD2679DF0B00CB7552 /* Main.storyboard in Resources */,
+				FA04F23B267F5FA000E61DC3 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,32 +206,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA8712CA2679DF0B00CB7552 /* ViewController.swift in Sources */,
+				FA8712CA2679DF0B00CB7552 /* MapViewController.swift in Sources */,
+				FA796FB42680A08D005E3364 /* MapViewModel.swift in Sources */,
 				FA8712C62679DF0B00CB7552 /* AppDelegate.swift in Sources */,
+				FA04F232267DED2200E61DC3 /* SplitDateHelper.swift in Sources */,
+				FA8712E0267A059400CB7552 /* LocationManager.swift in Sources */,
+				FA796FB2267F721C005E3364 /* LabelWithInsets.swift in Sources */,
+				FA8712DD267A004F00CB7552 /* NetworkManager.swift in Sources */,
+				FA04F234267E25C400E61DC3 /* UserSettings.swift in Sources */,
+				FA8712DA2679FD1100CB7552 /* StateOfWater.swift in Sources */,
 				FA8712C82679DF0B00CB7552 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		FA8712CB2679DF0B00CB7552 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA8712CC2679DF0B00CB7552 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FA8712D02679DF1100CB7552 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA8712D12679DF1100CB7552 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FA8712D42679DF1100CB7552 /* Debug */ = {
@@ -216,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -288,7 +345,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JU9RGHRA8W;
-				INFOPLIST_FILE = HotWaterWillBack/Info.plist;
+				INFOPLIST_FILE = "HotWaterWillBack/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +364,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JU9RGHRA8W;
-				INFOPLIST_FILE = HotWaterWillBack/Info.plist;
+				INFOPLIST_FILE = "HotWaterWillBack/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
