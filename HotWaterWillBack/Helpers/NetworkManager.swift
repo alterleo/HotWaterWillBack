@@ -17,6 +17,7 @@ class NetworkManager {
         let lastPartURL = "&house_only=1"
         let fullURL = (mainURL+partOfURL+lastPartURL)
         let fullURLEncoded = fullURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        print(fullURL)
         
         guard let url = URL(string: fullURLEncoded!) else { return }
         let session = URLSession.shared

@@ -7,16 +7,19 @@
 
 import UIKit
 import MapKit
+import AVFoundation
 
 class MapViewController: UIViewController {
     
     private var viewModel: MapViewModelProtocol! {
         didSet {
-//            viewModel.fetchCourses {
-//                self.tableView.reloadData()
-//            }
+            viewModel.loadSavedData {
+                self.refreshData()
+            }
         }
     }
+    
+    var player: AVAudioPlayer?
     
     var warningAboutWrongCity = false
     let regionInMeters = 500.00
@@ -41,16 +44,39 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startPlayingMP3()
+        
         // необходимо дать время для определения местоположения
         sleep(1)
         mapView.delegate = self
-        viewModel = MapViewModel()
         
         checkLocationServices()
-        loadSavedData()
+        viewModel = MapViewModel()
         
         startIntroduction()
         
+    }
+    
+    func startPlayingMP3() {
+        let urlString = Bundle.main.path(forResource: "startingSound.mp3", ofType: nil)
+        
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            
+            guard let urlString = urlString else { return }
+            
+            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+            guard let player = player else { return }
+            
+//            player.delegate = self
+//            player.numberOfLoops = -1
+//            player.prepareToPlay()
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     
     // Начальные подсказки
@@ -63,17 +89,7 @@ class MapViewController: UIViewController {
         self.triangleSecond.isHidden = true
     }
     
-    private func loadSavedData() {
-        guard let address = UserSettings.currentAddress,
-              let begin = UserSettings.beginDate,
-              let end = UserSettings.endDate,
-              let couch = UserSettings.couchHidden
-        else { return }
-        currentAddress.text = address
-        beginDate.text = begin
-        endDate.text = end
-        couchHidden = couch
-    }
+    // MARK: IBActions
     
     @IBAction func changeAddressButton(_ sender: UIButton) {
         
@@ -84,47 +100,9 @@ class MapViewController: UIViewController {
             self.couchHidden = true
         }
         
-        NetworkManager.fetchData(url: addressOnMap.text!) { outageBegin, outageEnd in
-            DispatchQueue.main.async {
-                
-                if outageBegin.count >= 12 && outageEnd.count >= 12 {
-                    let splittedOutageBegin = SplitDateHelper(fullString: outageBegin)
-                    let splittedOutageEnd = SplitDateHelper(fullString: outageEnd)
-                    
-                    let yearBegin = splittedOutageBegin.year
-                    let monthBegin = splittedOutageBegin.month
-                    let dayBegin = splittedOutageBegin.day
-                    let hourBegin = splittedOutageBegin.hour
-                    let minutesBegin = splittedOutageBegin.minutes
-                    
-                    let yearEnd = splittedOutageEnd.year
-                    let monthEnd = splittedOutageEnd.month
-                    let dayEnd = splittedOutageEnd.day
-                    let hourEnd = splittedOutageEnd.hour
-                    let minutesEnd = splittedOutageEnd.minutes
-                    
-                    self.beginDate.text = "\(dayBegin).\(monthBegin).\(yearBegin) \(hourBegin):\(minutesBegin)"
-                    self.endDate.text = "\(dayEnd).\(monthEnd).\(yearEnd) \(hourEnd):\(minutesEnd)"
-                } else {
-                    self.beginDate.text = ""
-                    self.endDate.text = ""
-                }
-                
-                self.saveData()
-            }
+        viewModel.fetchDataFromNet(url: addressOnMap.text!) {
+            self.refreshData()
         }
-    }
-    
-    private func saveData() {
-        guard let address = addressOnMap.text,
-              let beginDate = beginDate.text,
-              let endDate = endDate.text
-        else { return }
-        UserSettings.currentAddress = address
-        UserSettings.beginDate = beginDate
-        UserSettings.endDate = endDate
-        UserSettings.couchHidden = couchHidden
-        currentAddress.text = address
     }
     
     // центрирование позиции по локализации пользователя на карте
@@ -141,6 +119,17 @@ class MapViewController: UIViewController {
         
         showUserLocation()
     }
+    
+    //
+    func refreshData() {
+        self.currentAddress.text = self.viewModel.currentAddress
+        self.addressOnMap.text = self.viewModel.addressOnMap
+        self.beginDate.text = self.viewModel.beginDate
+        self.endDate.text = self.viewModel.endDate
+        self.couchHidden = self.viewModel.couchHidden!
+    }
+    
+    // MARK: Location operations
     
     private func showUserLocation() {
         
@@ -167,15 +156,6 @@ class MapViewController: UIViewController {
         }
     }
     
-    private func showAlert(title: String, message: String) {
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-    
     private func setupLocationManager() {
         locationManager.delegate = self
         
@@ -186,7 +166,6 @@ class MapViewController: UIViewController {
     private func checkLocationAuthorization() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:  // разрешено определение геолокации в момент использования приложения
-            //            mapView.showsUserLocation = true
             showUserLocation()
             break
         case .denied:               // запрет или отключена геолокация
@@ -206,7 +185,6 @@ class MapViewController: UIViewController {
         case .restricted:           // приложение не авторизовано для геолокации
             break
         case .authorizedAlways:     // приложению разрешена геолокация постоянно
-            mapView.showsUserLocation = true
             showUserLocation()
             break
         @unknown default:
@@ -222,7 +200,20 @@ class MapViewController: UIViewController {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
+    // MARK: Alert
+    
+    private func showAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
 }
+
+// MARK: CLLocationManagerDelegate
 
 extension MapViewController: CLLocationManagerDelegate {
     
@@ -230,6 +221,8 @@ extension MapViewController: CLLocationManagerDelegate {
         checkLocationAuthorization()
     }
 }
+
+// MARK: MKMapViewDelegate
 
 extension MapViewController: MKMapViewDelegate {
     
@@ -260,13 +253,21 @@ extension MapViewController: MKMapViewDelegate {
                     )
                 }
             }
-            //            print("locality: \(placemark?.locality) subLocality: \(placemark?.subLocality)")
             
             DispatchQueue.main.async {
                 if streetName != nil && buildNumber != nil {
-                    self.addressOnMap.text = "\(streetName!), \(buildNumber!)"
+                    let address = "\(streetName!), \(buildNumber!)"
+                    self.addressOnMap.text = address
+                    self.viewModel.setNewAddress(address: address)
                 }
             }
         }
+    }
+}
+
+extension MapViewController: AVAudioPlayerDelegate {
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        self.player = nil
     }
 }
