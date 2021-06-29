@@ -6,7 +6,7 @@
 Положение пользователя определяется на карте Apple
 
 ## Used Stack
-UIKit, MapKit, CoreLocation, AVFoundation, URLSession, JSONDecoder
+UIKit, MapKit, CoreLocation, AVFoundation, URLSession, JSONDecoder, UserSettings
 
 ## Screenshots
 ![img1.jpg](https://github.com/alterleo/HotWaterWillBack/blob/main/img1.jpg "img1.jpg")
