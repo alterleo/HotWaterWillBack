@@ -12,7 +12,7 @@ protocol MapViewModelProtocol: AnyObject {
     var currentAddress: String? { get }
     var beginDate: String? { get }
     var endDate: String? { get }
-    var couchHidden: Bool? { get }
+    var couchHidden: Bool { get }
     func loadSavedData(completion: @escaping() -> Void) -> Void
     func fetchDataFromNet(url: String, completion: @escaping() -> Void) -> Void
     func setNewAddress(address: String) -> Void
@@ -33,8 +33,8 @@ class MapViewModel: MapViewModelProtocol {
     var endDate: String? {
         return mapModel.endDate
     }
-    var couchHidden: Bool? {
-        return mapModel.couchHidden
+    var couchHidden: Bool {
+        return mapModel.couchHidden ?? true
     }
     
     func loadSavedData(completion: @escaping() -> Void) {
@@ -53,6 +53,7 @@ class MapViewModel: MapViewModelProtocol {
     
     func fetchDataFromNet(url: String, completion: @escaping() -> Void) {
         mapModel.currentAddress = url
+        mapModel.couchHidden = true
         
         NetworkManager.fetchData(url: url) { outageBegin, outageEnd in
             DispatchQueue.main.async {
@@ -75,15 +76,16 @@ class MapViewModel: MapViewModelProtocol {
                     
                     self.mapModel.beginDate = "\(dayBegin).\(monthBegin).\(yearBegin) \(hourBegin):\(minutesBegin)"
                     self.mapModel.endDate = "\(dayEnd).\(monthEnd).\(yearEnd) \(hourEnd):\(minutesEnd)"
+                    
                 } else {
                     self.mapModel.beginDate = ""
                     self.mapModel.endDate = ""
                 }
                 
                 self.saveData()
+                completion()
             }
         }
-        completion()
     }
     
     private func saveData() {

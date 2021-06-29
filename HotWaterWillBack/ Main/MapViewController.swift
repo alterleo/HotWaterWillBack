@@ -45,6 +45,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         
         startPlayingMP3()
+        doMakeUpBackView()
         
         // необходимо дать время для определения местоположения
         sleep(1)
@@ -53,8 +54,16 @@ class MapViewController: UIViewController {
         checkLocationServices()
         viewModel = MapViewModel()
         
+        // подсказки по работе
         startIntroduction()
         
+    }
+    
+    func doMakeUpBackView() {
+        backView.layer.cornerRadius = 20
+        backView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        backView.layer.shadowOpacity = 1
+        backView.layer.shadowRadius = 20
     }
     
     func startPlayingMP3() {
@@ -68,10 +77,7 @@ class MapViewController: UIViewController {
             
             player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
             guard let player = player else { return }
-            
-//            player.delegate = self
-//            player.numberOfLoops = -1
-//            player.prepareToPlay()
+
             player.play()
             
         } catch let error {
@@ -97,7 +103,6 @@ class MapViewController: UIViewController {
         DispatchQueue.main.async() {
             self.secondCouchLabel.isHidden = true
             self.triangleSecond.isHidden = true
-            self.couchHidden = true
         }
         
         viewModel.fetchDataFromNet(url: addressOnMap.text!) {
@@ -126,7 +131,7 @@ class MapViewController: UIViewController {
         self.addressOnMap.text = self.viewModel.addressOnMap
         self.beginDate.text = self.viewModel.beginDate
         self.endDate.text = self.viewModel.endDate
-        self.couchHidden = self.viewModel.couchHidden!
+        self.couchHidden = self.viewModel.couchHidden
     }
     
     // MARK: Location operations

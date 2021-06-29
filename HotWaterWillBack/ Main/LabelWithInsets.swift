@@ -9,7 +9,7 @@ import UIKit
 
 class LabelWithInsets: UILabel {
     
-    let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+    let padding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     
     override func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: padding))

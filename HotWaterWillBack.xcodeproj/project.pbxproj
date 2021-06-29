@@ -14,7 +14,6 @@
 		FA796FB2267F721C005E3364 /* LabelWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA796FB1267F721C005E3364 /* LabelWithInsets.swift */; };
 		FA796FB42680A08D005E3364 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA796FB32680A08D005E3364 /* MapViewModel.swift */; };
 		FA796FB62680B313005E3364 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA796FB52680B313005E3364 /* MapModel.swift */; };
-		FA796FBB2681E562005E3364 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA796FBA2681E562005E3364 /* LaunchScreenViewController.swift */; };
 		FA796FC52681FB47005E3364 /* startingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA796FC42681FB47005E3364 /* startingSound.mp3 */; };
 		FA8712C62679DF0B00CB7552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8712C52679DF0B00CB7552 /* AppDelegate.swift */; };
 		FA8712C82679DF0B00CB7552 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8712C72679DF0B00CB7552 /* SceneDelegate.swift */; };
@@ -33,7 +32,6 @@
 		FA796FB1267F721C005E3364 /* LabelWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithInsets.swift; sourceTree = "<group>"; };
 		FA796FB32680A08D005E3364 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		FA796FB52680B313005E3364 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
-		FA796FBA2681E562005E3364 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		FA796FC42681FB47005E3364 /* startingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = startingSound.mp3; sourceTree = "<group>"; };
 		FA8712C22679DF0B00CB7552 /* HotWaterWillBack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotWaterWillBack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8712C52679DF0B00CB7552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,14 +93,6 @@
 			path = " Main";
 			sourceTree = "<group>";
 		};
-		FA796FB92681E51A005E3364 /* LaunchScreen */ = {
-			isa = PBXGroup;
-			children = (
-				FA796FBA2681E562005E3364 /* LaunchScreenViewController.swift */,
-			);
-			path = LaunchScreen;
-			sourceTree = "<group>";
-		};
 		FA8712B92679DF0B00CB7552 = {
 			isa = PBXGroup;
 			children = (
@@ -122,7 +112,6 @@
 		FA8712C42679DF0B00CB7552 /* HotWaterWillBack */ = {
 			isa = PBXGroup;
 			children = (
-				FA796FB92681E51A005E3364 /* LaunchScreen */,
 				FA8712DE267A006300CB7552 /* Models */,
 				FA8712DB267A003300CB7552 /* Helpers */,
 				FA04F235267F5CAC00E61DC3 /* Supporting Files */,
@@ -234,7 +223,6 @@
 				FA8712DD267A004F00CB7552 /* NetworkManager.swift in Sources */,
 				FA04F234267E25C400E61DC3 /* UserSettings.swift in Sources */,
 				FA8712DA2679FD1100CB7552 /* StateOfWater.swift in Sources */,
-				FA796FBB2681E562005E3364 /* LaunchScreenViewController.swift in Sources */,
 				FA8712C82679DF0B00CB7552 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
